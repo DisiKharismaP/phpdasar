@@ -1,9 +1,18 @@
 <?php
-require 'functions.php';
+//koneksi ke database
+//(host, user, password, nama database)
+$db = mysqli_connect("127.0.0.1", "root", "", "db_phpdasar");
 
 //ambil data dari table
-$siswa = query("SELECT * FROM tb_siswa");
+$result = mysqli_query($db, "SELECT * FROM tb_siswa");
+// var_dump($result);
 
+//ambil data(fetch) mahasiswa
+//mysqli_fetch_row() = mengembalikan array numerik
+//mysqli_fetch_assoc() = mengembalikan array associative
+//mysqli_fetch_array() = mengembalikan kedua array
+//mysqli_fetch_object() = menjadi object
+    
 
 ?>
 <!DOCTYPE html>
@@ -26,7 +35,7 @@ $siswa = query("SELECT * FROM tb_siswa");
         </tr>
 
     <?php $i = 1; ?>
-    <?php foreach($siswa as $row): ?>
+    <?php while($row = mysqli_fetch_assoc($result)):?>
 
         <tr>
             <td><?= $i;?></td>
@@ -37,7 +46,7 @@ $siswa = query("SELECT * FROM tb_siswa");
         </tr>
 
     <?php $i++ ?>
-    <?php endforeach; ?>
+    <?php endwhile; ?>
     
 
     </table>
