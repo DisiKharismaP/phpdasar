@@ -28,4 +28,20 @@ function tambah($post){
 
     return mysqli_affected_rows($db);
 }
+
+function tambah_quiz($post){
+    global $db;
+    //ambil data dri tiap elemen form
+    $gambar_member = $post["gambar_member"];
+    $nama_asli_member = $post["nama_asli_member"];
+    $nama_panggung_member = $post["nama_panggung_member"];
+    $nama_instagram = $post["nama_instagram"];
+    $posisi_member = $post["posisi_member"];
+
+    //query insert data
+    $query = "INSERT INTO tb_idol VALUES( null, '$gambar_member', '$nama_asli_member', '$nama_panggung_member', '$nama_instagram', '$posisi_member')";
+    mysqli_query($db, $query);
+
+    return mysqli_affected_rows($db);
+}
 ?>
