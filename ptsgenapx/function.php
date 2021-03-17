@@ -55,8 +55,8 @@ function edit($data){
     gambar_pahlawan = '$gambar',
     nama_pahlawan = '$nama',
     lahir_pada_di = '$lahir',
-    posisi_pahlawan = '$posisi'
-    meninggal_pada_di = '$meninggal'
+    posisi_pahlawan = '$posisi',
+    meninggal_pada_di = '$meninggal',
     julukan_pahlawan = '$julukan'
 
     WHERE id_pahlawan = $id";
