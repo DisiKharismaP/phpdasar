@@ -4,7 +4,7 @@
 //(host, user, password, nama database)
 $db = mysqli_connect("127.0.0.1", "root", "", "db_phpdasar");
 
-function query($query){
+function get($query){
     global $db;
     $result = mysqli_query($db, $query);
     $rows = [];
@@ -44,4 +44,35 @@ function tambah_quiz($post){
 
     return mysqli_affected_rows($db);
 }
+
+function hapus($id){
+    global $db;
+
+    $query = "DELETE FROM tb_siswa WHERE id_siswa = $id";
+    mysqli_query($db, $query);
+    return mysqli_affected_rows($db);
+}
+
+function ubah($data){
+    global $db;
+
+    $id = $data["id_siswa"];
+    $gambar = $data["gambar_siswa"];
+    $nama = $data["nama_siswa"];
+    $kelas = $data["kelas_siswa"];
+    $email = $data["email_siswa"];
+
+    $query = "UPDATE tb_siswa SET 
+    gambar_siswa = '$gambar',
+    nama_siswa = '$nama',
+    kelas_siswa = '$kelas',
+    email_siswa = '$email'
+
+    WHERE id_siswa = $id";
+
+    mysqli_query($db, $query);
+
+    return mysqli_affected_rows($db);
+}
+
 ?>

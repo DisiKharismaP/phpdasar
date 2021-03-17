@@ -2,7 +2,7 @@
 require 'functions.php';
 
 //ambil data dari table
-$siswa = query("SELECT * FROM tb_siswa");
+$siswa = get("SELECT * FROM tb_siswa");
 
 
 ?>
@@ -35,8 +35,8 @@ $siswa = query("SELECT * FROM tb_siswa");
             <td><?= $i;?></td>
 
             <td>
-            <a href="">ubah</a>
-            <a href="">hapus</a>
+            <a href="ubah.php?id=<?= $row["id_siswa"];?>">ubah</a>
+            <a href="hapus.php?id=<?= $row["id_siswa"];?>">hapus</a>
             </td>
 
             <td><img src="img/<?= $row["gambar_siswa"];?>" width="100"></td>
@@ -48,8 +48,6 @@ $siswa = query("SELECT * FROM tb_siswa");
     <?php $i++ ?>
     <?php endforeach; ?>
     
-
     </table>
-    
 </body>
 </html>

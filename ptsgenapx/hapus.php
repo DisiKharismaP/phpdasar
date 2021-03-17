@@ -1,5 +1,5 @@
 <?php 
-require 'functions.php';
+require 'function.php';
 $id = $_GET["id"];
 $db = mysqli_connect("localhost", "root", "", "db_phpdasar");
 
