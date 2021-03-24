@@ -1,7 +1,7 @@
 <?php
 require 'functions.php';
 
-$result = query("SELECT * FROM tb_idol");
+$result = get("SELECT * FROM tb_idol");
 
 ?>
 <!DOCTYPE html>
@@ -13,7 +13,7 @@ $result = query("SELECT * FROM tb_idol");
     <title>Document</title>
 </head>
 <body>
-    <h1>Biodata Member EXO</h1>
+    <h1>Biodata Member Idol</h1>
     <a href="tambah_quiz.php">tambah data member</a>
     <table border="1" cellpadding="10" cellspacing="0">
         <tr>
@@ -34,8 +34,8 @@ $result = query("SELECT * FROM tb_idol");
             <td><?= $i;?></td>
 
             <td>
-            <a href="">ubah</a>
-            <a href="">hapus</a>
+            <a href="ubah_quiz.php?id=<?= $row["id_member"];?>">ubah</a>
+            <a href="delete_quiz.php?id=<?= $row["id_member"];?>">hapus</a>
             </td>
 
             <td><img src="img/<?= $row["gambar_member"];?>" width="100"></td>

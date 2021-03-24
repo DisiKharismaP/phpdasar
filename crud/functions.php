@@ -29,21 +29,6 @@ function tambah($post){
     return mysqli_affected_rows($db);
 }
 
-function tambah_quiz($post){
-    global $db;
-    //ambil data dri tiap elemen form
-    $gambar_member = $post["gambar_member"];
-    $nama_asli_member = $post["nama_asli_member"];
-    $nama_panggung_member = $post["nama_panggung_member"];
-    $nama_instagram = $post["nama_instagram"];
-    $posisi_member = $post["posisi_member"];
-
-    //query insert data
-    $query = "INSERT INTO tb_idol VALUES( null, '$gambar_member', '$nama_asli_member', '$nama_panggung_member', '$nama_instagram', '$posisi_member')";
-    mysqli_query($db, $query);
-
-    return mysqli_affected_rows($db);
-}
 
 function hapus($id){
     global $db;
@@ -73,6 +58,58 @@ function ubah($data){
     mysqli_query($db, $query);
 
     return mysqli_affected_rows($db);
+}
+
+
+//------
+//quiz function
+function tambah_quiz($post){
+    global $db;
+    
+    $gambar_member = $post["gambar_member"];
+    $nama_asli_member = $post["nama_asli_member"];
+    $nama_panggung_member = $post["nama_panggung_member"];
+    $nama_instagram = $post["nama_instagram"];
+    $posisi_member = $post["posisi_member"];
+
+    $query = "INSERT INTO tb_idol VALUES( null, '$gambar_member', '$nama_asli_member', '$nama_panggung_member', '$nama_instagram', '$posisi_member')";
+    mysqli_query($db, $query);
+
+    return mysqli_affected_rows($db);
+}
+
+function delete_quiz($id){
+    global $db;
+
+    $query = "DELETE FROM tb_idol WHERE id_member = $id";
+    mysqli_query($db, $query);
+    return mysqli_affected_rows($db);
+}
+
+function ubah_quiz($data){
+    global $db; 
+
+    $id = $data["id_member"];
+    $gambar_member = $data["gambar_member"];
+    $nama_asli_member = $data["nama_asli_member"];
+    $nama_panggung_member = $data["nama_panggung_member"];
+    $nama_instagram = $data["nama_instagram"];
+    $posisi_member = $data["posisi_member"];
+
+    $query = "UPDATE tb_idol SET 
+    gambar_member = '$gambar_member',
+    nama_asli_member = '$nama_asli_member',
+    nama_panggung_member = '$nama_panggung_member',
+    nama_instagram = '$nama_instagram',
+    posisi_member = '$posisi_member'
+
+
+    WHERE id_member = $id";
+
+    mysqli_query($db, $query);
+
+    return mysqli_affected_rows($db);
+
 }
 
 ?>
