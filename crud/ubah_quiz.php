@@ -57,7 +57,7 @@ if(isset($_POST["submit"])){
     <p>
 
     <label for="nama_panggung_member">Nama panggung Idol:</label>
-    <input type="text" name="knama_panggung_member" id="nama_panggung_member" required
+    <input type="text" name="nama_panggung_member" id="nama_panggung_member" required
     value="<?= $idol["nama_panggung_member"];?>"></input>
     <p>
 
