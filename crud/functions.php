@@ -60,6 +60,16 @@ function ubah($data){
     return mysqli_affected_rows($db);
 }
 
+function search($keyword){
+    $query = "SELECT * FROM tb_siswa WHERE
+    nama_siswa LIKE '%$keyword%' OR
+    kelas_siswa LIKE '%$keyword%' OR
+    email_siswa LIKE '%$keyword%'
+    ";
+
+    return get($query);
+}
+
 
 //------
 //quiz function
@@ -110,6 +120,16 @@ function ubah_quiz($data){
 
     return mysqli_affected_rows($db);
 
+}
+
+function search_quiz($keyword){
+    $query = "SELECT * FROM tb_idol WHERE
+    nama_asli_member LIKE '%$keyword%' OR
+    nama_instagram LIKE '%$keyword%' OR
+    nama_panggung_member LIKE '%$keyword%'
+    ";
+
+    return get($query);
 }
 
 ?>

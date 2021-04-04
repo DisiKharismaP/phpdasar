@@ -3,6 +3,12 @@ require 'functions.php';
 
 $result = get("SELECT * FROM tb_idol");
 
+if (isset($_POST["search"])){
+
+    $result = search_quiz($_POST["keyword"]);
+    
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,6 +21,14 @@ $result = get("SELECT * FROM tb_idol");
 <body>
     <h1>Biodata Member Idol</h1>
     <a href="tambah_quiz.php">tambah data member</a>
+    <p>
+
+    <form action="" method="post">
+    <input type="text" name="keyword" size="30" autofocus placeholder="search here..." autocomplete="off">
+    <button type="submit" name="search">search</button>
+    </form>
+    <p>
+
     <table border="1" cellpadding="10" cellspacing="0">
         <tr>
             <th>No</th>
